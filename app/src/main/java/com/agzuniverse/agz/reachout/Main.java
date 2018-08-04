@@ -20,10 +20,10 @@ public class Main extends Activity {
     private CustomButton getHelpButton;
     private CustomButton giveHelpButton;
 
-    private FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             mFusedLocationClient.getLastLocation()
                     .addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -32,7 +32,7 @@ public class Main extends Activity {
                             if (location != null) {
                                 // Logic to handle location object
                                 Log.d("loc", String.valueOf(location));
-                            }
+                            } else Log.d("loc", "NOT FOUND");
                         }
                     });
         }
@@ -47,7 +47,17 @@ public class Main extends Activity {
         getHelpButton = findViewById(R.id.getHelpBtn);
         giveHelpButton = findViewById(R.id.giveHelpBtn);
 
+
+
         getHelpButton.setButtonText("I WANT HELP");
         giveHelpButton.setButtonText("I WANT TO HELP");
+        getHelpButton.setOnClick(navToGetHelp);
     }
+
+    Runnable navToGetHelp = new Runnable() {
+        @Override
+        public void run() {
+            startActivity(new Intent(Main.this, GetHelp.class));
+        }
+    };
 }
