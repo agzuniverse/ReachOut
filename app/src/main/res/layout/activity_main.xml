@@ -4,20 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Main">
+    tools:context=".Main"
+    android:background="@color/colorPrimaryDark">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="Reach Out"
+        android:textSize="72sp"
+        android:textColor="@color/brand_color"
+        android:paddingTop="36dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+       />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/btn"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <com.agzuniverse.agz.reachout.CustomButton
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/getHelpBtn"/>
+        <com.agzuniverse.agz.reachout.CustomButton
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/giveHelpBtn"/>
+
+    </LinearLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HELLO"/>
+        android:text="Logged in as John Doe"
+        android:textColor="@color/brand_color"
+        app:layout_constraintBottom_toBottomOf='parent'
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
+        android:background="@drawable/rounded_text"
+        />
 
 </android.support.constraint.ConstraintLayout>

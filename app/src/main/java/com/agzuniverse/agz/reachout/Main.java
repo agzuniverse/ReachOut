@@ -1,5 +1,6 @@
 package com.agzuniverse.agz.reachout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -14,7 +15,10 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 
-public class Main extends AppCompatActivity {
+public class Main extends Activity {
+    private CustomButton getHelpButton;
+    private CustomButton giveHelpButton;
+
     private FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +37,16 @@ public class Main extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
-        Button btn = findViewById(R.id.btn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v){
-                startActivity(new Intent(Main.this, GetHelp.class));
-            }
-        });
+//        Button btn = findViewById(R.id.btn);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v){
+//                startActivity(new Intent(Main.this, GetHelp.class));
+//            }
+//        });
+        getHelpButton = findViewById(R.id.getHelpBtn);
+        giveHelpButton = findViewById(R.id.giveHelpBtn);
+
+        getHelpButton.setButtonText("I WANT HELP");
+        giveHelpButton.setButtonText("I WANT TO HELP");
     }
 }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Reach Out</string>
+    <string name="button_placeholder">Loading...</string>
 </resources>
