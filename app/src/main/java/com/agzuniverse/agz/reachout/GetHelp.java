@@ -6,15 +6,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 
 public class GetHelp extends AppCompatActivity {
     private CustomButton submit;
+    private EditText ppl;
+    private EditText desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.get_help);
 
         submit = findViewById(R.id.submit);
+        ppl = findViewById(R.id.ppl);
+        desc = findViewById(R.id.desc);
+
         submit.setButtonText("SUBMIT");
         submit.setOnClick(submitTrigger);
     }
@@ -27,6 +33,9 @@ public class GetHelp extends AppCompatActivity {
     };
 
     public void submitData() {
+        String nPpl = ppl.getText().toString();
+        String nDesc = desc.getText().toString();
+
 
     }
 

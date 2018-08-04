@@ -6,10 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".Main"
     android:background="@color/colorPrimaryDark">
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check all that applies to you :"
+        android:textColor="@color/brand_color"
+        android:paddingVertical="8dp"
+        android:paddingLeft="16dp"
+        android:textSize="20sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,13 +30,6 @@
         android:orientation="vertical"
         android:paddingLeft="32dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Check all that applies to you :"
-            android:textColor="@color/brand_color"
-            android:paddingBottom="8dp"
-            android:textSize="20sp"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,6 +97,7 @@
                 android:textColor="@color/brand_color"
                 android:paddingRight="8dp"/>
             <EditText
+                android:id="@+id/ppl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Enter number.."
@@ -103,15 +110,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Anything else you'd like to report : "
+            android:layout_marginBottom="4dp"
             android:textColor="@color/brand_color"
             android:paddingRight="8dp"/>
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/desc"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter description..."
-            android:maxLines="5"
-            android:minLines="5"
-            android:inputType="text"
+            android:layout_marginRight="32dp"
+            android:maxLines="3"
+            android:minLines="3"
+            android:inputType="textMultiLine"
             android:textColor="@color/brand_color"
             android:textColorHint="@color/brand_color_light"/>
 
@@ -120,9 +130,11 @@
     <com.agzuniverse.agz.reachout.CustomButton
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_marginBottom="16dp"
         android:id="@+id/submit"/>
 
 
     </LinearLayout>
 
+</ScrollView>
 </android.support.constraint.ConstraintLayout>
