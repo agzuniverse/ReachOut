@@ -18,14 +18,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-
 public class GetHelp extends AppCompatActivity {
     private CustomButton submit;
     private EditText ppl;
@@ -52,10 +44,9 @@ public class GetHelp extends AppCompatActivity {
     };
 
     public void submitData() {
-        String nPpl = ppl.getText().toString();
-        String nDesc = desc.getText().toString();
+        final String nPpl = ppl.getText().toString();
+        final String nDesc = desc.getText().toString();
 
-        //Aswinmpr4bhu code here only
         FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             mFusedLocationClient.getLastLocation()
@@ -69,9 +60,9 @@ public class GetHelp extends AppCompatActivity {
                                 try {
                                     locObj.put("latitude",location.getLatitude());
                                     locObj.put("longitude",location.getLongitude());
-                                    userObj.put("name", "John Doe");
-                                    userObj.put("bloodgroup", "A+");
-                                    userObj.put("phone", "8089967299");
+                                    userObj.put("name", "Aswin Prabhu");
+                                    userObj.put("bloodgroup", "B+");
+                                    userObj.put("phone", "756867299");
                                     resObj.put("food", String.valueOf(food));
                                     resObj.put("water", String.valueOf(water));
                                     resObj.put("shelter", String.valueOf(shelter));
@@ -81,11 +72,13 @@ public class GetHelp extends AppCompatActivity {
                                     resObj.put("food", String.valueOf(food));
                                     resObj.put("medical", String.valueOf(medical));
                                     resObj.put("transport", String.valueOf(transport));
+                                    resObj.put("ppl", nPpl);
+                                    resObj.put("desc",nDesc);
                                     obj.put("user", userObj);
                                     obj.put("location", locObj);
                                     obj.put("resources", resObj);
                                       NetworkPost net = new NetworkPost();
-                                      net.execute("http://440f738a.ngrok.io/api/posthelp", String.valueOf(obj));
+                                      net.execute("http://8f555758.ngrok.io/api/posthelp", String.valueOf(obj));
                                       showToast();
                                 } catch (JSONException e) {
                                     e.printStackTrace();

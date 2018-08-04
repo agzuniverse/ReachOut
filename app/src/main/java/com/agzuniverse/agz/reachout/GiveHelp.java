@@ -1,9 +1,20 @@
 package com.agzuniverse.agz.reachout;
 
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.Toast;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class GiveHelp extends AppCompatActivity {
     private CustomButton submit;
@@ -27,7 +38,43 @@ public class GiveHelp extends AppCompatActivity {
 
     public void submitData() {
 
-        //Aswinmpr4bhu code here only
+        FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            mFusedLocationClient.getLastLocation()
+                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                        public void onSuccess(Location location) {
+                            if (location != null) {
+                                JSONObject locObj =  new JSONObject();
+                                JSONObject userObj = new JSONObject();
+                                JSONObject resObj = new JSONObject();
+                                JSONObject obj = new JSONObject();
+                                try {
+                                    locObj.put("latitude",location.getLatitude());
+                                    locObj.put("longitude",location.getLongitude());
+                                    userObj.put("name", "Jess Arnold");
+                                    userObj.put("bloodgroup", "B+");
+                                    userObj.put("phone", "9495967478");
+                                    resObj.put("food", String.valueOf(food));
+                                    resObj.put("water", String.valueOf(water));
+                                    resObj.put("shelter", String.valueOf(shelter));
+                                    resObj.put("blankets", String.valueOf(blanket));
+                                    resObj.put("clothes", String.valueOf(cloth));
+                                    resObj.put("volunteer", String.valueOf(volunteer));
+                                    resObj.put("medical", String.valueOf(medical));
+                                    resObj.put("blood", String.valueOf(blood));
+                                    obj.put("user", userObj);
+                                    obj.put("location", locObj);
+                                    obj.put("resources", resObj);
+                                    NetworkPost net = new NetworkPost();
+                                    net.execute("http://8f555758.ngrok.io/api/posthelpoffer", String.valueOf(obj));
+                                    showToast();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    });
+        }
 
         super.finish();
     }
@@ -56,5 +103,8 @@ public class GiveHelp extends AppCompatActivity {
     }
     public void checkBlood(View v) {
         blood = ((CheckBox) v).isChecked();
+    }
+    public void showToast() {
+        Toast.makeText(this, "Request submitted successfully", Toast.LENGTH_LONG).show();
     }
 }
