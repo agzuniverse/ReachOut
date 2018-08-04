@@ -36,7 +36,9 @@ public class GetHelp extends AppCompatActivity {
         String nPpl = ppl.getText().toString();
         String nDesc = desc.getText().toString();
 
+        //Aswinmpr4bhu code here only
 
+        super.finish();
     }
 
     public boolean food, water, shelter, cloth, blanket, first_aid, medical, rescue;
