@@ -31,6 +31,7 @@ public class Main extends Activity {
     private CustomButton getHelpButton;
     private CustomButton giveHelpButton;
 
+
     private FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
@@ -46,9 +47,11 @@ public class Main extends Activity {
             return response.body().string();
         }
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             mFusedLocationClient.getLastLocation()
                     .addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -56,6 +59,7 @@ public class Main extends Activity {
                             // Got last known location. In some rare situations this can be null.
                             if (location != null) {
                                 // Logic to handle location object
+
                                 Log.d("loc", String.valueOf(location.getLatitude()));
                                 JSONObject locObj =  new JSONObject();
                                 try {
@@ -73,6 +77,7 @@ public class Main extends Activity {
                                 }
 
                             }
+
                         }
                     });
         }
@@ -87,7 +92,17 @@ public class Main extends Activity {
         getHelpButton = findViewById(R.id.getHelpBtn);
         giveHelpButton = findViewById(R.id.giveHelpBtn);
 
+
+
         getHelpButton.setButtonText("I WANT HELP");
         giveHelpButton.setButtonText("I WANT TO HELP");
+        getHelpButton.setOnClick(navToGetHelp);
     }
+
+    Runnable navToGetHelp = new Runnable() {
+        @Override
+        public void run() {
+            startActivity(new Intent(Main.this, GetHelp.class));
+        }
+    };
 }
