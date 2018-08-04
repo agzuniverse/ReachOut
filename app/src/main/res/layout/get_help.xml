@@ -96,8 +96,24 @@
                 android:hint="Enter number.."
                 android:maxLines="1"
                 android:inputType="number"
-                android:textColor="@color/brand_color"/>
+                android:textColor="@color/brand_color"
+                android:textColorHint="@color/brand_color_light"/>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Anything else you'd like to report : "
+            android:textColor="@color/brand_color"
+            android:paddingRight="8dp"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter description..."
+            android:maxLines="5"
+            android:minLines="5"
+            android:inputType="text"
+            android:textColor="@color/brand_color"
+            android:textColorHint="@color/brand_color_light"/>
 
     </LinearLayout>
 

@@ -30,9 +30,6 @@ import okhttp3.Response;
 public class Main extends Activity {
     private CustomButton getHelpButton;
     private CustomButton giveHelpButton;
-
-
-    private FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
     OkHttpClient client = new OkHttpClient();
@@ -51,36 +48,36 @@ public class Main extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            mFusedLocationClient.getLastLocation()
-                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
-                        public void onSuccess(Location location) {
-                            // Got last known location. In some rare situations this can be null.
-                            if (location != null) {
-                                // Logic to handle location object
-
-                                Log.d("loc", String.valueOf(location.getLatitude()));
-                                JSONObject locObj =  new JSONObject();
-                                try {
-                                    locObj.put("lat",location.getLatitude());
-                                    locObj.put("lon",location.getLongitude());
-                                    try {
-                                        String res = post("https://postman-echo.com/post", String.valueOf(locObj));
-                                        Log.d("res", res);
-
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-
-                        }
-                    });
-        }
+//        FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+//        if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+//            mFusedLocationClient.getLastLocation()
+//                    .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+//                        public void onSuccess(Location location) {
+//                            // Got last known location. In some rare situations this can be null.
+//                            if (location != null) {
+//                                // Logic to handle location object
+//
+//                                Log.d("loc", String.valueOf(location.getLatitude()));
+//                                JSONObject locObj =  new JSONObject();
+//                                try {
+//                                    locObj.put("lat",location.getLatitude());
+//                                    locObj.put("lon",location.getLongitude());
+//                                    try {
+//                                        String res = post("https://postman-echo.com/post", String.valueOf(locObj));
+//                                        Log.d("res", res);
+//
+//                                    } catch (IOException e) {
+//                                        e.printStackTrace();
+//                                    }
+//                                } catch (JSONException e) {
+//                                    e.printStackTrace();
+//                                }
+//
+//                            }
+//
+//                        }
+//                    });
+//        }
 
         setContentView(R.layout.activity_main);
 //        Button btn = findViewById(R.id.btn);
