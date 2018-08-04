@@ -8,10 +8,26 @@ import android.widget.Button;
 import android.widget.CheckBox;
 
 public class GetHelp extends AppCompatActivity {
+    private CustomButton submit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.get_help);
+
+        submit = findViewById(R.id.submit);
+        submit.setButtonText("SUBMIT");
+        submit.setOnClick(submitTrigger);
+    }
+
+    public Runnable submitTrigger = new Runnable() {
+        @Override
+        public void run() {
+            submitData();
+        }
+    };
+
+    public void submitData() {
+
     }
 
     public boolean food, water, shelter, cloth, blanket, first_aid, medical, rescue;

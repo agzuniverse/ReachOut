@@ -6,72 +6,107 @@
     android:layout_height="match_parent"
     tools:context=".Main"
     android:background="@color/colorPrimaryDark">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        android:paddingLeft="32dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Check all that applies to you"
-            android:textColor="@color/brand_color"/>
+            android:text="Check all that applies to you :"
+            android:textColor="@color/brand_color"
+            android:paddingBottom="8dp"
+            android:textSize="20sp"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="Food required"
-            android:onClick="checkFood"/>
+            android:onClick="checkFood"
+            android:buttonTint="@color/brand_color"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="Water required"
-            android:onClick="checkWater"/>
+            android:onClick="checkWater"
+            android:buttonTint="@color/brand_color"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="Shelter needed"
-            android:onClick="checkShelter"/>
+            android:onClick="checkShelter"
+            android:buttonTint="@color/brand_color"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="Clothes required"
-            android:onClick="checkCloth"/>
+            android:onClick="checkCloth"
+            android:buttonTint="@color/brand_color"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="Blankets required"
-            android:onClick="checkBlanket"/>
+            android:onClick="checkBlanket"
+            android:buttonTint="@color/brand_color"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="First Aid needed"
-            android:onClick="checkFirstAid"/>
+            android:onClick="checkFirstAid"
+            android:buttonTint="@color/brand_color"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="Needs to be rescued"
-            android:onClick="checkRescue"/>
+            android:onClick="checkRescue"
+            android:buttonTint="@color/brand_color"/>
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/brand_color"
             android:text="Medical attention needed"
-            android:onClick="checkMedical"/>
+            android:onClick="checkMedical"
+            android:buttonTint="@color/brand_color"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No. of people with me : "
+                android:textColor="@color/brand_color"
+                android:paddingRight="8dp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter number.."
+                android:maxLines="1"
+                android:inputType="number"
+                android:textColor="@color/brand_color"/>
+        </LinearLayout>
 
     </LinearLayout>
 
+    <com.agzuniverse.agz.reachout.CustomButton
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:id="@+id/submit"/>
+
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
