@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GetHelp"
+            android:label="Get Help"
             android:parentActivityName=".Main">
 
         </activity>
