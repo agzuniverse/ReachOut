@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main"
+    android:background="@color/colorPrimaryDark">
 
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check anything you can spare:"
+                android:textColor="@color/brand_color"
+                android:paddingVertical="8dp"
+                android:paddingLeft="16dp"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="32dp">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="Food packets"
+                    android:onClick="checkFood"
+                    android:buttonTint="@color/brand_color"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="Clean water"
+                    android:onClick="checkWater"
+                    android:buttonTint="@color/brand_color"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="Provide housing"
+                    android:onClick="checkShelter"
+                    android:buttonTint="@color/brand_color"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="Unused clothes"
+                    android:onClick="checkCloth"
+                    android:buttonTint="@color/brand_color"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="Blankets/Sheets "
+                    android:onClick="checkBlanket"
+                    android:buttonTint="@color/brand_color"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="Medical supplies"
+                    android:onClick="checkMedical"
+                    android:buttonTint="@color/brand_color"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="I want to volunteer for rescue operations"
+                    android:onClick="checkVolunteer"
+                    android:buttonTint="@color/brand_color"/>
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/brand_color"
+                    android:text="I'm willing to donate blood"
+                    android:onClick="checkBlood"
+                    android:buttonTint="@color/brand_color"/>
+
+            </LinearLayout>
+
+            <com.agzuniverse.agz.reachout.CustomButton
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="16dp"
+                android:id="@+id/submit"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

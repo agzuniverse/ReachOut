@@ -94,12 +94,19 @@ public class Main extends Activity {
         getHelpButton.setButtonText("I WANT HELP");
         giveHelpButton.setButtonText("I WANT TO HELP");
         getHelpButton.setOnClick(navToGetHelp);
+        giveHelpButton.setOnClick(navToGiveHelp);
     }
 
     Runnable navToGetHelp = new Runnable() {
         @Override
         public void run() {
             startActivity(new Intent(Main.this, GetHelp.class));
+        }
+    };
+    Runnable navToGiveHelp = new Runnable() {
+        @Override
+        public void run() {
+            startActivity(new Intent(Main.this, GiveHelp.class));
         }
     };
 }

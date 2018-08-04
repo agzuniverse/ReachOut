@@ -24,6 +24,10 @@
         <activity android:name=".GetHelp"
             android:label="Get Help"
             android:parentActivityName=".Main">
+        </activity>
+        <activity android:name=".GiveHelp"
+            android:label="Give Help"
+            android:parentActivityName=".Main">
 
         </activity>
     </application>
