@@ -1,0 +1,9 @@
+.Request {
+    height: 100vh;
+}
+
+.Items {
+    margin-top: 5px;
+    background-color: 'black';
+    padding: 30px;
+}
