@@ -60,7 +60,7 @@ public class GetHelp extends AppCompatActivity {
                                 try {
                                     locObj.put("latitude",location.getLatitude());
                                     locObj.put("longitude",location.getLongitude());
-                                    userObj.put("name", "Joyal A Johney");
+                                    userObj.put("name", "Vivek R");
                                     userObj.put("bloodgroup", "B+");
                                     userObj.put("phone", "756867299");
                                     resObj.put("food", String.valueOf(food));
@@ -78,8 +78,8 @@ public class GetHelp extends AppCompatActivity {
                                     obj.put("location", locObj);
                                     obj.put("resources", resObj);
                                       NetworkPost net = new NetworkPost();
-                                      net.execute("http://8f555758.ngrok.io/api/posthelp", String.valueOf(obj));
-                                      showToast();
+                                      net.execute("https://postman-echo.com/post", String.valueOf(obj));
+                                    showToast();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
