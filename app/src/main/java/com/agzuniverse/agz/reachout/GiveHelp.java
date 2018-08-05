@@ -51,9 +51,9 @@ public class GiveHelp extends AppCompatActivity {
                                 try {
                                     locObj.put("latitude",location.getLatitude());
                                     locObj.put("longitude",location.getLongitude());
-                                    userObj.put("name", "Jess Arnold");
-                                    userObj.put("bloodgroup", "B+");
-                                    userObj.put("phone", "9495967478");
+                                    userObj.put("name", "Devdutt Shenoi");
+                                    userObj.put("bloodgroup", "AB+");
+                                    userObj.put("phone", "7890967478");
                                     resObj.put("food", String.valueOf(food));
                                     resObj.put("water", String.valueOf(water));
                                     resObj.put("shelter", String.valueOf(shelter));

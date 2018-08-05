@@ -60,7 +60,7 @@ public class GetHelp extends AppCompatActivity {
                                 try {
                                     locObj.put("latitude",location.getLatitude());
                                     locObj.put("longitude",location.getLongitude());
-                                    userObj.put("name", "Aswin Prabhu");
+                                    userObj.put("name", "Joyal A Johney");
                                     userObj.put("bloodgroup", "B+");
                                     userObj.put("phone", "756867299");
                                     resObj.put("food", String.valueOf(food));
